@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject" />
+            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject\AnimationDemo" />
+            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject\MediaDemo" />
+            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject\MediaTestDemo" />
+            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject\app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
+

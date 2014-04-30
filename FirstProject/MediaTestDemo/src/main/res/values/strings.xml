@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FirstProject</string>
+    <string name="welcome">Welcome, it is my MediaTest!</string>
+    <string name="welcome_simple">Simple Play UI!</string>
+    <string name="welcome_customer">Customer Play UI!</string>
+    <string name="welcome_music">Music Play UI!</string>
+
+
+    <!-- buttons' text -->
+    <string name="simple_play">Simple Play</string>
+    <string name="customer_play">Customer Play</string>
+    <string name="music">Music</string>
+
+    <!-- media status -->
+    <string name="play">play</string>
+    <string name="pause">pause</string>
+    <string name="_continue">continue</string>
+    <string name="replay">replay</string>
+    <string name="stop">stop</string>
+    <string name="title_activity_simple">SimpleActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_customer">CustomerActivity</string>
+    <string name="title_activity_music">MusicActivity</string>
+
+</resources>
