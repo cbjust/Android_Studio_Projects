@@ -2,8 +2,10 @@ package com.cb.test.animation;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -61,24 +63,26 @@ public class PropertyAnimationDemo extends Activity
             {
             // test to add animator in xml
                 case R.id.scaleX:
-                    setAnimator(view, R.animator.scalex);
+                    setAnimatorFromXml(view, R.animator.scalex);
                     break;
                 case R.id.scale:
-                    setAnimator(view, R.animator.scale);
+                    setAnimatorFromXml(view, R.animator.scale);
                     break;
                 case R.id.translate:
-                    setAnimator(view, R.animator.translatex);
+                    setAnimatorFromXml(view, R.animator.translatex);
                     break;
                 case R.id.rotate:
-                    setAnimator(view, R.animator.rotation);
+                    setAnimatorFromXml(view, R.animator.rotation);
                     break;
                 case R.id.alpha:
-                    setAnimator(view, R.animator.alpha);
+                    setAnimatorFromXml(view, R.animator.alpha);
                     break;
 
-                // test to add animator in java code
+                // test to add animator in java code from three method
                 case R.id.test_btn:
-                    dynamicAnimator(view);
+                    setAnimatorFromJavaCode1(view);
+                    // setAnimatorFromJavaCode2(view);
+                    // setAnimatorFromJavaCode3(view);
                     break;
             }
         }
@@ -90,7 +94,7 @@ public class PropertyAnimationDemo extends Activity
      * @param view the view user clicked
      * @param resId the animator used
      */
-    public void setAnimator(View view, int resId)
+    public void setAnimatorFromXml(View view, int resId)
     {
         Animator animator = AnimatorInflater.loadAnimator(PropertyAnimationDemo.this, resId);
         if (animator != null)
@@ -101,11 +105,11 @@ public class PropertyAnimationDemo extends Activity
     }
 
     /**
-     * test to add animator in java code
+     * first method: add animator in java code using AnimatorSet
      * 
      * @param view the view user clicked
      */
-    public void dynamicAnimator(View view)
+    public void setAnimatorFromJavaCode1(View view)
     {
         ObjectAnimator animator_one = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 2.0f, 1.0f);
         animator_one.setDuration(2000);
@@ -117,12 +121,40 @@ public class PropertyAnimationDemo extends Activity
         // animatorSet.playTogether(animator_one);
         animatorSet.playSequentially(animator_one, animator_two);
         animatorSet.start();
+    }
 
-        // other method to make animation
+    /**
+     * first method: add animator in java code using PropertyValuesHolder
+     * 
+     * @param view the view user clicked
+     */
+    public void setAnimatorFromJavaCode2(View view)
+    {
+        PropertyValuesHolder pvhScaleX = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 2.0f, 1.0f);
+        PropertyValuesHolder pvhScaleY = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 2.0f, 1.0f);
 
-        // PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("x", 50f);
-        // PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("y", 50f);
-        // ObjectAnimator.ofPropertyValuesHolder(view, pvhX, pvhY).start();
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view, pvhScaleX, pvhScaleY);
+        animator.setDuration(2000);
+        animator.start();
+    }
+
+    /**
+     * first method: add animator in java code using ViewPropertyAnimator
+     * 
+     * @param view the view user clicked
+     */
+    public void setAnimatorFromJavaCode3(View view)
+    {
+        final View finalView = view;
+        // view.animate() returns ViewPropertyAnimator object
+        finalView.animate().scaleX(2.0f).scaleY(2.0f).setDuration(1000).setListener(new AnimatorListenerAdapter()
+        {
+            @Override
+            public void onAnimationEnd(Animator animation)
+            {
+                finalView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(1000).start();
+            }
+        }).start();
     }
 
     /**
@@ -154,4 +186,5 @@ public class PropertyAnimationDemo extends Activity
             Toast.makeText(PropertyAnimationDemo.this, "onAnimationRepeat", Toast.LENGTH_SHORT).show();
         }
     };
+
 }

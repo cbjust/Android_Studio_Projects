@@ -7,11 +7,11 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject" />
-            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject\AnimationDemo" />
-            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject\MediaDemo" />
-            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject\MediaTestDemo" />
-            <option value="D:\Users\binchen\AndroidStdioProjects\FirstProject\app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AnimationDemo" />
+            <option value="$PROJECT_DIR$/MediaDemo" />
+            <option value="$PROJECT_DIR$/MediaTestDemo" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>
